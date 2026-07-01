@@ -1,0 +1,42 @@
+[
+  {
+    "direction": "framed-keepsake",
+    "epaperLegibility": 8,
+    "hebrewRtlCorrectness": 9,
+    "emotionalWarmth": 9,
+    "oneBitRobustness": 8,
+    "originality": 8,
+    "total": 42,
+    "note": "Verified render (keepsake-render2.png) is the most genuinely keepsake-like: double-rule frame + corner ticks + centered serif body reads as a framed love note, zero chat-app chrome. RTL is clean — the heart trails 'איתך' on the visual left (logical end), the מאור ← מאורי שלי attribution travels right-to-left with the beloved's name as the heaviest mass, exactly the intended emotional payload. 1-bit threshold proof confirms no grey is load-bearing. The only real risk is the Frank Ruhl serif's thin terminals at the 22px tracked eyebrow and 30px attribution after a slow full refresh on the physical panel; the giant quote-mark and 46px/700 body are safe. Letter-spacing 6px on a tracked Hebrew eyebrow ('ל א ה ו ב ה') is slightly awkward for Hebrew (which doesn't tolerate tracking as gracefully as Latin) but survives. Strongest soul-to-pixel match."
+  },
+  {
+    "direction": "modern-bubble",
+    "epaperLegibility": 8,
+    "hebrewRtlCorrectness": 9,
+    "emotionalWarmth": 7,
+    "oneBitRobustness": 9,
+    "originality": 7,
+    "total": 40,
+    "note": "Verified render (bubble-v2.png) is fully realized and the most 1-bit-bulletproof of the four: everything is pure outline/stroke work, no fills, so a hard threshold leaves it identical — the heaviest 800-weight quote is the most confidently legible body text across the room. RTL is double-encoded and correct: avatar 'מ' chip leads on the right, tail points down-right at it, name block stacks מאור over אל מאורי שלי right-aligned, date chip balances far-left. The redundant who-said-to-whom signal is genuinely clever. Marked down on warmth/originality because it still borrows WhatsApp grammar (bubble + tail + avatar initial + date chip) — the printed-card frame mitigates but doesn't fully erase the 'nice chat screenshot' read, which is the one aesthetic Maor explicitly didn't want. Long-quote auto-shrink toward the 28px floor is the production risk it correctly flags."
+  },
+  {
+    "direction": "editorial-poster",
+    "epaperLegibility": 7,
+    "hebrewRtlCorrectness": 9,
+    "emotionalWarmth": 8,
+    "oneBitRobustness": 7,
+    "originality": 9,
+    "total": 40,
+    "note": "Verified render (keepsake-render.png / mislabeled keepsake-1bit.png) is the most distinctive and least chat-like — the oversized 150px opening quote glyph anchored top-right (correct RTL lead-in) plus the byline rule genuinely elevate a text message into a published pull-quote. Most original direction by a clear margin. RTL is correct: quote right-aligned, comma mirrors to the left, heart trails 'איתך' on the visual left, 'מילה לאהובה' kicker pushed far-left as a dedication, מאורי שלי ← מאור attribution reads right-to-left. Legibility/robustness dinged because it leans hardest on thin strokes — the 2px inner frame, 2px baseline byline rule, and the faint grey-rendered 'מילה לאהובה' kicker (it renders noticeably lighter than the bold attribution, hinting at a sub-bold weight that will wash out on e-paper) sit near the panel minimum. Bump all hairlines to 3px+ and force the kicker to true black. Left-anchored heart top-right corner is a lovely touch."
+  },
+  {
+    "direction": "two-voices",
+    "epaperLegibility": 7,
+    "hebrewRtlCorrectness": 9,
+    "emotionalWarmth": 9,
+    "oneBitRobustness": 7,
+    "originality": 8,
+    "total": 40,
+    "note": "Judged from HTML source (two-voices-mock.html) since the supplied two-voices-render.png is a byte-identical duplicate of the framed-keepsake render — a real verification gap, the concept's own 'verified render' claim is unsubstantiated by the artifact on disk. On the merits the source is sound: dir=rtl with flex space-between correctly puts speaker מאור (right) and recipient מאורי שלי (left), the SVG arrow points left (right-to-left flow), the bubble is pushed flex-end to the speaker's right side with its tail pointing up to מאור, and the heart is a clean 2.6px-stroke outline. The 'מאת מאור → אל מאורי שלי' header is the warmest framing of relationship-as-subject of all four. Robustness/legibility risk is the two long 2px footer rules and the 3px arrow shaft — long near-hairlines render unevenly on e-paper; bump to 3-4px. The 38px/600 quote is the lightest body weight of the set (others use 700-800), so it will read slightly fainter on the backlit-less panel — push to 700."
+  }
+]

@@ -1,0 +1,35 @@
+# mis-api — render/API service for the Maori Ink Screen.
+#
+# Run this from the PROJECT ROOT so the build context resolves correctly:
+#
+#     docker compose -f server/docker-compose.yml up -d --build
+#
+# It joins the SAME external docker network as the already-running
+# `mis-postgres` container (compose project "maori-ink" at /opt/maori-ink,
+# default network "maori-ink_default"). That lets this service reach Postgres
+# at host `mis-postgres:5432` over the docker network — no ports exposed on the
+# host for the DB. The API itself is published to 127.0.0.1 only; the host's
+# existing nginx proxies public HTTPS traffic to it.
+services:
+  mis-api:
+    build:
+      # Context is the project root (one level up from this compose file) so the
+      # Dockerfile can COPY both ./server and ./src/lib/render-template.ts.
+      context: ..
+      dockerfile: server/Dockerfile
+    container_name: mis-api
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      PORT: "8080"
+    ports:
+      # localhost-only; nginx on the host proxies to this.
+      - "127.0.0.1:8090:8080"
+    networks:
+      - maori-ink_default
+
+networks:
+  # External: created by the mis-postgres compose project, NOT by this file.
+  maori-ink_default:
+    external: true

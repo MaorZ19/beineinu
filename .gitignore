@@ -1,0 +1,28 @@
+node_modules/
+.next/
+dist/
+
+# secrets & local config — never commit
+.env
+.env.*
+!.env.example
+firmware/MaoriInkScreen/config.h
+
+# your private data — chat exports, rendered frames, photos
+_chat*.txt
+.tmp/
+*.epd
+quotes-review.html
+
+# rendered / generated output
+*.png
+!docs/**/*.png
+*.tsbuildinfo
+
+# build artifacts
+firmware/**/build/
+
+# misc
+.DS_Store
+*.log
+.playwright-mcp/

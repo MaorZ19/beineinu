@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<style>
+  /* Literary Hebrew type (option 1): Frank Ruhl Libre — a classic Hebrew book
+     serif — for the quote; Suez One — a stylish display serif — for the
+     signature name. Heebo for the small date line. */
+  @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Suez+One&family=Heebo:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #fff; }
+
+  /* ===== THE PHYSICAL PANEL: EXACTLY 800x480, pure #000 on #FFF ===== */
+  .panel {
+    width: 800px;
+    height: 480px;
+    background: #fff;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Heebo', 'Assistant', 'Arial Hebrew', sans-serif;
+    -webkit-font-smoothing: none;          /* crisp 1-bit edges */
+    text-rendering: geometricPrecision;
+  }
+
+  /* ===== Single thin keepsake frame — clean, one rule only ===== */
+  .frame { position: absolute; top: 24px; left: 24px; right: 24px; bottom: 24px; border: 2px solid #000; }
+
+  /* ===== The quote — hero, centered, NO niqqud (authentic chat text),
+     WRAPPED in opening + closing quotation marks (literary). ===== */
+  .quote-wrap {
+    position: absolute;
+    top: 70px; left: 86px; right: 86px; bottom: 132px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .quote {
+    font-family: 'Frank Ruhl Libre', 'Heebo', serif;
+    font-weight: 700;
+    font-size: 50px;            /* renderer auto-fits; this is the short tier */
+    line-height: 1.42;
+    max-width: 620px;
+    color: #000;
+  }
+  /* Closing the quote: open glyph leads (right, RTL), close glyph trails (left).
+     Frank Ruhl's quotation glyphs are elegant and print beautifully in 1-bit. */
+  .quote .qm {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 900;
+    font-size: 1.15em;
+    line-height: 0;
+    vertical-align: -0.28em;
+  }
+  .quote .qm.open { margin-left: 12px; }
+  .quote .qm.close { margin-right: 12px; }
+
+  /* ===== Signature — BOTTOM-LEFT, literary: name in a display serif, no em-dash ===== */
+  .sign {
+    position: absolute;
+    left: 64px; bottom: 50px;
+    text-align: left;
+  }
+  .sign .who {
+    font-family: 'Suez One', 'Frank Ruhl Libre', serif;
+    font-size: 34px; font-weight: 400;
+    line-height: 1.05; white-space: nowrap;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  /* one small outline heart, gentle, beside the name */
+  .sign .heart { width: 22px; height: 20px; align-self: center; }
+  .sign .heart svg { display: block; width: 100%; height: 100%; }
+  .sign .date {
+    margin-top: 10px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 19px; font-weight: 400;
+    letter-spacing: 3px;
+    color: #000;
+  }
+</style>
+</head>
+<body>
+  <div class="panel">
+    <div class="frame"></div>
+
+    <div class="quote-wrap">
+      <div class="quote"><span class="qm open">&#8221;</span>כמה טוב לי לצעוד בעולם הזה, יד ביד, איתך<span class="qm close">&#8220;</span></div>
+    </div>
+
+    <!-- who said it: bottom-left, literary. Display name: "מאור" / "מאורי" (wife). -->
+    <div class="sign">
+      <div class="who">
+        <span class="name">מאור</span>
+        <span class="heart"><svg viewBox="0 0 32 30" aria-hidden="true"><path d="M16 27 C16 27 3 18.5 3 9.8 C3 5.4 6.4 2.5 10.2 2.5 C13 2.5 15.1 4.2 16 6.2 C16.9 4.2 19 2.5 21.8 2.5 C25.6 2.5 29 5.4 29 9.8 C29 18.5 16 27 16 27 Z" fill="none" stroke="#000" stroke-width="2.6" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="date">19 במרץ 2021</div>
+    </div>
+  </div>
+</body>
+</html>

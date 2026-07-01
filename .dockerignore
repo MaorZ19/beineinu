@@ -1,0 +1,22 @@
+# Build context for server/Dockerfile is the PROJECT ROOT. Keep the context
+# small/clean: the Dockerfile only needs ./server and ./src/lib/render-template.ts.
+node_modules
+**/node_modules
+.next
+dist
+server/dist
+.git
+.env
+.env.*
+**/.env
+**/.env.*
+_chat*.txt
+*.png
+!server/fonts/*
+.playwright-mcp
+.tmp
+.planning
+.vscode
+.claude
+npm-debug.log*
+.DS_Store

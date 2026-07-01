@@ -1,0 +1,50 @@
+// ===========================================================================
+// Maori Ink Screen — firmware config
+// Copy this file's values to match YOUR setup, then flash MaoriInkScreen.ino.
+// ===========================================================================
+#pragma once
+
+// ---- Wi-Fi ----
+#define WIFI_SSID      "YOUR_WIFI_SSID"
+#define WIFI_PASSWORD  "YOUR_WIFI_PASSWORD"
+
+// ---- API endpoint ----
+// Your server returns a RAW 1-bit e-paper buffer (exactly 48000 bytes).
+// Must be reachable over IPv4 (the C3 has no working IPv6 path) and return
+// exactly 48000 bytes.
+#define QUOTE_EPD_URL  "https://your-server.example.com/quote/random.epd"
+
+// If your endpoint is HTTPS with a valid Let's Encrypt cert, leave this 1.
+// Set to 0 ONLY for local plain-HTTP testing.
+#define USE_HTTPS      1
+
+// ---- Refresh cadence ----
+// How long to deep-sleep between quote changes (seconds).
+// e-paper holds the image with ZERO power while asleep, so long is fine.
+#define SLEEP_SECONDS  (12UL * 60UL)   // 12 min (~120 quotes/day). Battery-powered:
+                                        // shorter = more screen wear + faster drain.
+                                        // Try 30*60 or 60*60 to extend battery life.
+
+// UC8179 partial refresh ghosts over time; do a clean FULL refresh every wake
+// here since we change the whole image anyway. (Kept for documentation.)
+#define ALWAYS_FULL_REFRESH 1
+
+// ---- Board selection ----
+// CONFIRMED by reading the connected chip (esptool): this is a
+//   XIAO ESP32-C3 (QFN32 rev v0.4), Single Core 160MHz, 4MB flash, NO PSRAM.
+// In Arduino IDE: Tools > Board > "XIAO_ESP32C3".
+// Because we draw a RAW 48KB buffer (no PNG decode), the lack of PSRAM is fine:
+// 48000 bytes sits comfortably in the C3's ~400KB SRAM.
+
+// ---- Panel geometry (do not change for the 7.5" 800x480 panel) ----
+#define EPD_WIDTH   800
+#define EPD_HEIGHT  480
+#define EPD_BYTES   ((EPD_WIDTH * EPD_HEIGHT) / 8)   // 48000
+
+// HTTP timeout for the buffer fetch (ms)
+#define HTTP_TIMEOUT_MS  20000
+
+// Diagnostic: keep awake N seconds after drawing so serial is readable / easy
+// reflash. Leave DISABLED for production (on battery, staying awake wastes power).
+// Uncomment only to debug or reflash without the BOOT-button dance.
+// #define DIAG_DELAY_SECONDS 45

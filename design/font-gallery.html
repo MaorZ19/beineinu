@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Suez+One&family=David+Libre:wght@400;500;700&family=Heebo:wght@400;500;700&family=Assistant:wght@400;600;700&family=Noto+Serif+Hebrew:wght@500;700&family=Secular+One&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#888; font-family:'Heebo',sans-serif; padding:20px; display:flex; flex-direction:column; gap:24px; align-items:center; }
+  .label { color:#fff; font-size:15px; letter-spacing:1px; margin-bottom:-14px; align-self:flex-start; margin-right:8px; }
+
+  /* each panel exactly 800x480, pure b/w */
+  .panel {
+    width:800px; height:480px; background:#fff; color:#000; position:relative; overflow:hidden;
+    -webkit-font-smoothing:none; text-rendering:geometricPrecision;
+  }
+  .frame { position:absolute; top:24px; left:24px; right:24px; bottom:24px; border:2px solid #000; }
+  .quote-wrap { position:absolute; top:70px; left:86px; right:86px; bottom:132px; display:flex; align-items:center; justify-content:center; text-align:center; }
+  .quote { font-weight:700; font-size:50px; line-height:1.42; max-width:620px; }
+  .qm { font-weight:900; font-size:1.15em; line-height:0; vertical-align:-0.28em; }
+  .qm.open { margin-left:12px; } .qm.close { margin-right:12px; }
+  .sign { position:absolute; left:64px; bottom:50px; text-align:left; }
+  .who { font-size:34px; line-height:1.05; white-space:nowrap; display:flex; align-items:center; gap:12px; }
+  .heart { width:22px; height:20px; } .heart svg{ display:block; width:100%; height:100%; }
+  .date { margin-top:10px; font-family:'Heebo',sans-serif; font-size:19px; letter-spacing:3px; }
+
+  /* ---- per-font overrides ---- */
+  .f-frankruhl .quote, .f-frankruhl .qm { font-family:'Frank Ruhl Libre',serif; }
+  .f-frankruhl .who { font-family:'Suez One',serif; font-weight:400; }
+
+  .f-david .quote, .f-david .qm { font-family:'David Libre',serif; }
+  .f-david .who { font-family:'David Libre',serif; font-weight:700; }
+
+  .f-notoserif .quote, .f-notoserif .qm { font-family:'Noto Serif Hebrew',serif; }
+  .f-notoserif .who { font-family:'Noto Serif Hebrew',serif; font-weight:700; }
+
+  .f-heebo .quote, .f-heebo .qm { font-family:'Heebo',sans-serif; }
+  .f-heebo .who { font-family:'Heebo',sans-serif; font-weight:700; }
+
+  .f-assistant .quote, .f-assistant .qm { font-family:'Assistant',sans-serif; font-weight:700; }
+  .f-assistant .who { font-family:'Secular One',sans-serif; }
+</style>
+</head>
+<body>
+  <!-- macro to keep markup identical across fonts -->
+  <div class="label">1 · Frank Ruhl Libre + Suez One (ספרותי קלאסי)</div>
+  <div class="panel f-frankruhl" id="p1"></div>
+  <div class="label">2 · David Libre (קלאסי נקי)</div>
+  <div class="panel f-david" id="p2"></div>
+  <div class="label">3 · Noto Serif Hebrew (סריף מודרני)</div>
+  <div class="panel f-notoserif" id="p3"></div>
+  <div class="label">4 · Heebo (סאנס נקי)</div>
+  <div class="panel f-heebo" id="p4"></div>
+  <div class="label">5 · Assistant + Secular One (סאנס ידידותי)</div>
+  <div class="panel f-assistant" id="p5"></div>
+
+  <script>
+    const heart = '<span class="heart"><svg viewBox="0 0 32 30"><path d="M16 27 C16 27 3 18.5 3 9.8 C3 5.4 6.4 2.5 10.2 2.5 C13 2.5 15.1 4.2 16 6.2 C16.9 4.2 19 2.5 21.8 2.5 C25.6 2.5 29 5.4 29 9.8 C29 18.5 16 27 16 27 Z" fill="none" stroke="#000" stroke-width="2.6" stroke-linejoin="round"/></svg></span>';
+    const inner =
+      '<div class="frame"></div>' +
+      '<div class="quote-wrap"><div class="quote"><span class="qm open">&#8221;</span>כמה טוב לי לצעוד בעולם הזה, יד ביד, איתך<span class="qm close">&#8220;</span></div></div>' +
+      '<div class="sign"><div class="who"><span class="name">מאור</span>' + heart + '</div><div class="date">19 במרץ 2021</div></div>';
+    for (let i=1;i<=5;i++) document.getElementById('p'+i).innerHTML = inner;
+  </script>
+</body>
+</html>
