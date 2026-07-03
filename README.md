@@ -1,16 +1,19 @@
-# Maori Ink Screen 💛
+# Beineinu (בינינו) — Ink Screen 💛
 
 <!-- photo: e-paper frame on the wall showing a rendered quote card — add yours here -->
 
 **A love letter that rewrites itself every 12 minutes.**
 
-I built this for my wife, Maori. We've been texting each other on WhatsApp for
+I built this for my wife. We've been texting each other on WhatsApp for
 years — hundreds of thousands of messages — and buried inside all that logistics
 noise are the lines that actually matter: the tender ones, the ones that made us
 laugh out loud, the little notes about our kid. So I exported the whole chat,
 taught an AI to find the beautiful moments, and put them on a battery-powered
-e-paper frame on our wall. Every few minutes it wakes up, picks a random memory,
+e-paper frame on our sideboard, under the TV. Every few minutes it wakes up, picks a random memory,
 draws it as a clean literary keepsake card in Hebrew, and goes back to sleep.
+
+*Beineinu* (בינינו) means "between us" — because that's what this is: the small
+things that stay between us, finally given a place of honor at home.
 
 Technically, it's a deliberately "dumb screen, smart server" system: a Postgres
 database of real messages, an AI curation pass, a locked HTML design rendered to
